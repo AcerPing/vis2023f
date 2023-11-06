@@ -1,6 +1,6 @@
-# Hierarchical bar chart
+# Stacked bar chart, horizontal
 
-https://observablehq.com/@d3/hierarchical-bar-chart@368
+https://observablehq.com/d/005c4b751a61536a@678
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/@d3/hierarchical-bar-chart@368.tgz?v=3
+npm install https://api.observablehq.com/d/005c4b751a61536a@678.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "@d3/hierarchical-bar-chart";
+import define from "005c4b751a61536a";
 ~~~
 
 To log the value of the cell named “foo”:
