@@ -1,0 +1,15 @@
+<!-- 參考範例：https://github.com/MizuyoruTW/vis2023f/tree/main/hw02/src/strong -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Strong baseline (1+1pt)</title>
+<link rel="stylesheet" type="text/css" href="./inspector.css">
+<body>
+<script type="module">
+
+import define from "./index.js";
+import {Runtime, Library, Inspector} from "./runtime.js";
+
+const runtime = new Runtime();
+const main = runtime.module(define, Inspector.into(document.body));
+
+</script>
