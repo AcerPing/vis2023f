@@ -16,7 +16,7 @@ async function _data(FileAttachment)
     class:d.班級,
     id:d.學號,
     name: d.姓名,
-    github: d.GitHub,
+    github: d.GitHub 帳號,
     columns,
     hw:d[columns]
   })));
@@ -39,7 +39,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["data.csv", {url: new URL("./files/b7b8f9f8c14bdf52dd177532b5651d75602fff4d5d751b53f28a1f03cfacd2c1f9816c10799d35dcb012d944680c093f241054b87b125ed9b721aee190efd06e.csv", import.meta.url), mimeType: "text/csv", toString}]
+    ["data.csv", {url: new URL("./files/data.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
