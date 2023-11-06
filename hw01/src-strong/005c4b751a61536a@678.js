@@ -16,7 +16,7 @@ async function _data(FileAttachment)
     class:d.班級,
     id:d.學號,
     name: d.姓名,
-    github: d.GitHub 帳號,
+    github: d.GitHub,
     columns,
     hw:d[columns]
   })));
