@@ -9,8 +9,8 @@ This chart Made By Ho-ChePing.`
 function _chart(d3,data)
 {
   // Declare the chart dimensions and margins.
-  const width = 928;
-  const height = 500;
+  const width = 9280;
+  const height = 5000;
   const marginTop = 30;
   const marginRight = 0;
   const marginBottom = 30;
