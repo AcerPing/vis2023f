@@ -68,7 +68,7 @@ function _chart(d3,data)
 
 
 function _data(FileAttachment){return(
-FileAttachment("alphabet.csv").csv({typed: "auto"})
+FileAttachment("data.csv").csv({typed: "auto"})
 )}
 
 function _4(md){return(
@@ -89,7 +89,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["alphabet.csv", {url: new URL("./files/data.csv", import.meta.url), mimeType: "text/csv", toString}]
+    ["data.csv", {url: new URL("./files/data.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
