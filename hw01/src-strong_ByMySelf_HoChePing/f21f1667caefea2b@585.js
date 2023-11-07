@@ -3,7 +3,7 @@ md`<div style="color: grey; font: 13px/25.5px var(--sans-serif); text-transform:
 
 # Bar chart
 
-This chart shows the relative frequency of letters in the English language. A vertical bar chart such as this is sometimes called a *column* chart. Data: *Cryptological Mathematics*, Robert Lewand`
+This chart Made By Ho-ChePing.`
 )}
 
 function _chart(d3,data)
@@ -18,13 +18,13 @@ function _chart(d3,data)
 
   // Declare the x (horizontal position) scale.
   const x = d3.scaleBand()
-      .domain(d3.groupSort(data, ([d]) => -d.frequency, (d) => d.letter)) // descending frequency
+      .domain(d3.groupSort(data, ([d]) => -d.TotalScore, (d) => d.Name)) // descending Total
       .range([marginLeft, width - marginRight])
       .padding(0.1);
   
   // Declare the y (vertical position) scale.
   const y = d3.scaleLinear()
-      .domain([0, d3.max(data, (d) => d.frequency)])
+      .domain([0, d3.max(data, (d) => d.TotalScore)])
       .range([height - marginBottom, marginTop]);
 
   // Create the SVG container.
@@ -40,9 +40,9 @@ function _chart(d3,data)
     .selectAll()
     .data(data)
     .join("rect")
-      .attr("x", (d) => x(d.letter))
-      .attr("y", (d) => y(d.frequency))
-      .attr("height", (d) => y(0) - y(d.frequency))
+      .attr("x", (d) => x(d.Name))
+      .attr("y", (d) => y(d.TotalScore))
+      .attr("height", (d) => y(0) - y(d.TotalScore))
       .attr("width", x.bandwidth());
 
   // Add the x-axis and label.
@@ -60,7 +60,7 @@ function _chart(d3,data)
           .attr("y", 10)
           .attr("fill", "currentColor")
           .attr("text-anchor", "start")
-          .text("↑ Frequency (%)"));
+          .text("↑ TotalScore"));
 
   // Return the SVG element.
   return svg.node();
@@ -72,14 +72,14 @@ FileAttachment("alphabet.csv").csv({typed: "auto"})
 )}
 
 function _4(md){return(
-md`Using [Observable Plot](https://observablehq.com/plot)’s concise API, you can create a bar chart with the [bar mark](https://observablehq.com/plot/marks/bar). Below, the **sort** option orders the *x* domain (letter) by descending *y* value (frequency), and a [rule mark](https://observablehq.com/plot/marks/rule) also denotes *y* = 0.`
+md`Made By HoChePing`
 )}
 
 function _5(Plot,data){return(
 Plot.plot({
   y: {percent: true},
   marks: [
-    Plot.barY(data, {x: "letter", y: "frequency", fill: "steelblue", sort: {x: "-y"}}),
+    Plot.barY(data, {x: "Name", y: "TotalScore", fill: "steelblue", sort: {x: "-y"}}),
     Plot.ruleY([0])
   ]
 })
@@ -89,7 +89,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["alphabet.csv", {url: new URL("./files/09f63bb9ff086fef80717e2ea8c974f918a996d2bfa3d8773d3ae12753942c002d0dfab833d7bee1e0c9cd358cd3578c1cd0f9435595e76901508adc3964bbdc.csv", import.meta.url), mimeType: "text/csv", toString}]
+    ["alphabet.csv", {url: new URL("./files/data.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
