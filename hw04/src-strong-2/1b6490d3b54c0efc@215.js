@@ -501,7 +501,7 @@ htl.html`<style>
 
 function _22(md){return(
 md`Reference：
-<li> 1.) https://observablehq.com/d/a2200d66f6ecc017</li>`
+<li> 1.) https://observablehq.com/d/ebd8ef7e5f335baa</li>`
 )}
 
 export default function define(runtime, observer) {
