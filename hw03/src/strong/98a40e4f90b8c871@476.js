@@ -1,15 +1,15 @@
 import define1 from "./e93997d5089d7165@2303.js";
 
 function _1(md){return(
-md`# HW03 Medium baseline (4pt)`
+md`# HW03_HoChePing （何哲平）_StrongBaseline_`
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("UserData@1.json").json()
+FileAttachment("UserData.json").json()
 )}
 
 function _bgColor(Inputs){return(
-Inputs.color({ label: "background color", value: "#dde6ee" })
+Inputs.color({ label: "background color", value: "#33A6B8" })
 )}
 
 function _strokeColor(Inputs){return(
@@ -63,21 +63,34 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
     .attr("stroke-width", 0.5)
     .attr("opacity", strokeOpacity)
     .attr("d", path);
+
+  const maxValue = 42;
+  const thresholds = d3.range(0, maxValue + 1);
+  const colorRange = thresholds.map(value => d3.interpolateGreens(value / maxValue));
+  const thresholdScale = d3.scaleThreshold().domain(thresholds).range(colorRange);
   
   details
     .enter()
     .append("path")
     .attr("fill", (d) => {
-      minidata.find(
+      const foundData = minidata.find(
         (t) =>
-          t.value === d.properties.COUNTYNAME &&
-          t["value"].replace("　", "") === d.properties.COUNTYNAME
+          t.value === d.properties.COUNTYNAME ||
+          t.value.replace("臺", "台") === d.properties.COUNTYNAME
       );
-      //return thresholdScale(t.value)(+t.count);
+      return foundData ? thresholdScale(foundData.count) : thresholdScale(0);
     })
+    .attr("stroke", "gray")
     .attr("d", path)
     .append("title")
-    .text(d => d.properties.COUNTYNAME);
+    .text((d) => {
+      const foundData = minidata.find(
+        (t) =>
+          t.value === d.properties.COUNTYNAME ||
+          t.value.replace("臺", "台") === d.properties.COUNTYNAME
+      );
+      return `${d.properties.COUNTYNAME} ${foundData ? foundData.count : 0}人`;
+    });
   
 
   svg.append("g");
@@ -243,7 +256,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["UserData@1.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
+    ["UserData.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);

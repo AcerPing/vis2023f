@@ -1,6 +1,6 @@
-# HW03 Medium baseline (4pt)
+# HW03_HoChePing （何哲平）StrongBaseline
 
-https://observablehq.com/d/ec0e39b666962d0e@458
+https://observablehq.com/d/98a40e4f90b8c871@476
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/ec0e39b666962d0e@458.tgz?v=3
+npm install https://api.observablehq.com/d/98a40e4f90b8c871@476.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "ec0e39b666962d0e";
+import define from "98a40e4f90b8c871";
 ~~~
 
 To log the value of the cell named “foo”:

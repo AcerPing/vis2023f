@@ -1,11 +1,11 @@
 {
-  "name": "ec0e39b666962d0e",
-  "main": "ec0e39b666962d0e@458.js",
-  "version": "458.0.0",
-  "homepage": "https://observablehq.com/d/ec0e39b666962d0e",
+  "name": "98a40e4f90b8c871",
+  "main": "98a40e4f90b8c871@476.js",
+  "version": "476.0.0",
+  "homepage": "https://observablehq.com/d/98a40e4f90b8c871",
   "author": {
-    "name": "吳泳霈's Workspace",
-    "url": "https://observablehq.com/@yung2-ws"
+    "name": "北科大-何哲平's Workspace",
+    "url": "https://observablehq.com/@bei-ke-da-he-zhe-ping-ws"
   },
   "type": "module",
   "peerDependencies": {
